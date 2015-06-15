@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="CocktailCollectionApp.RegisterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="New Cocktail Maker" Grid.Row="0" FontFamily="/Fonts/#Pacifico" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+        <Label Name="name" Content="Name" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="tbfirstName" Height="25" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"  Margin="15,0,45,0" Text="{Binding Name}"/>
+        <!--<xctk:WatermarkTextBox Name="tblastName" Watermark="Last Name" Height="25" Width="84" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,45,0"/>-->
+        <Label Name="userName" Content="Username" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="tbUserNameRegister" Grid.Row="2" Grid.Column="1" Height="25" VerticalAlignment="Center" Margin="15,0,45,0" Text="{Binding Username}"/>
+        <Label Name="password" Content="Password" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="tbpasswordRegister" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="15,0,45,0" Height="25" Text="{Binding Password}"/>
+        <Label Name="location" Content="City" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="tbcity" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Width="84" Margin="15,0,0,0" Text="{Binding City}"/>
+        <ComboBox Name="tbprovince" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Height="25" Width="84" Margin="0,0,45,0"  SelectedValue="{Binding Province}" SelectedIndex="0">
+            <ComboBoxItem>Alberta</ComboBoxItem>
+            <ComboBoxItem>British Columbia</ComboBoxItem>
+            <ComboBoxItem>New Brunswick</ComboBoxItem>
+            <ComboBoxItem>Newfoundland and Labrador</ComboBoxItem>
+            <ComboBoxItem>Northwest Territories*</ComboBoxItem>
+            <ComboBoxItem>Nova Scotia</ComboBoxItem>
+            <ComboBoxItem>Nunavut*</ComboBoxItem>
+            <ComboBoxItem>Ontario</ComboBoxItem>
+            <ComboBoxItem>Prince Edward Island</ComboBoxItem>
+            <ComboBoxItem>Quebec</ComboBoxItem>
+            <ComboBoxItem>Saskatchewan</ComboBoxItem>
+            <ComboBoxItem>Yukon Territory*</ComboBoxItem>
+        </ComboBox>
+        <Label Name="postalCode" Content="Postal Code" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" FontWeight="Bold"/>
+        <TextBox Name="tbpostalCode" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Height="25" Margin="15,0,45,0" Text="{Binding Postalcode}"/>
+        <Button Name="btnsumbit" Command ="Save" Content="Register" Background="Transparent" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="65,0,0,0" Width="75" Height="35" Click="btnsumbit_Click">
+            <Button.CommandBindings>
+                <CommandBinding Command="Save" 
+                    Executed="Save_Executed" CanExecute="Save_CanExecute"/>
+            </Button.CommandBindings>
+        </Button>
+    </Grid>
+</UserControl>
